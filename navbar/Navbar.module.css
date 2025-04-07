@@ -1,0 +1,195 @@
+/* Varsayılan Tema (Light Mode) */
+:root {
+    --background-color: #dddddd;
+    --text-color: #000000;
+    --link-color: #007bff;
+    --hover-background: #aaaaaa;
+    --nav-background: #dddddd;
+    --nav-hover: #555;
+    --burger-background: #000000;
+    --burger-hover: #ddd;
+    --wellcome-text: #000000;
+    --logout-button: #000000;
+    --logout-box-border: #000000;
+    --logout-hover: #000000;
+    --logout-hover-text: #ffffff;
+  }
+  
+  /* Dark Theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #222;
+      --text-color: #fff;
+      --link-color: #ff6347;
+      --hover-background: #555;
+      --nav-background: #222;
+      --nav-hover: #444;
+      --burger-background: #fff;
+      --burger-hover: #ddd;
+      --wellcome-text: #ffffff;
+      --logout-button: #ffffff;
+      --logout-box-border: #ffffff;
+      --logout-hover: #ffffff;
+      --logout-hover-text: #000000;
+    }
+  }
+
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--background-color);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbarContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: auto;
+    width: 100%;
+  }
+  
+  .logo h2 {
+    color: var(--text-color);
+    margin: 0;
+  }
+  
+  .navList {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin-left: 1.5rem;
+    position: relative;
+  }
+  
+/* Navbar Styles */
+.navItem a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    display: block;
+    width: 100%;
+    text-align: center; /* Metni yatayda ortalamak için */
+    box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
+  }
+  
+  /* Hover Effect */
+  .navItem a:hover {
+    background-color: var(--hover-background);
+    opacity: 0.8;
+    scale: 1.1;
+  }
+  
+  /* Hamburger Menu Styles */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure hamburger icon is clickable */
+  }
+  
+  .bar {
+    height: 4px;
+    width: 100%;
+    background-color: var(--burger-background);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hamburger Animation */
+  .hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+  
+  /* Mobile Menu Styles */
+  @media screen and (max-width: 768px) {
+    .navList {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      background-color: var(--nav-background);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      animation: slideIn 0.3s ease-out;
+      padding-top: 0px; /* Space between hamburger and menu items */
+    }
+  
+    .navList.active {
+      display: flex;
+    }
+  
+    .navItem {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .hamburger {
+      display: flex; /* Show hamburger on mobile */
+    }
+  }
+  
+  /* Slide-in Animation */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+
+
+  /* Button için stil */
+.logoutButton {
+  background-color: transparent;
+  border: 1px solid var(--logout-box-border);
+  padding: 0.75rem 1.5rem;
+  color: var(--logout-button);
+  cursor: pointer;
+  display: block;
+  text-align: center; /* Metni yatayda ortalamak için */
+}
+
+.logoutButton:hover {
+  background-color: var(--logout-hover);
+  color: var(--logout-hover-text);
+}
+
+/* Welcome mesajı için stil */
+.welcomeMessage {
+  font-weight: bold;
+  color: var(--wellcome-text);
+  padding: 0.75rem 1.5rem;
+  display: block;
+  text-align: center; /* Metni yatayda ortalamak için */
+}
+  
